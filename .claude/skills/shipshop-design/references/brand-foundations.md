@@ -1,79 +1,97 @@
 # ShipShop - Brand foundations
 
-## 1. Source and status
+## 1. Source
 
-- **Creative direction:** "Guía Boutique Blush · Tipografía" (Claude Design project, shared by the client).
-- **Status:** the values below are a **provisional Boutique Blush system**, built to the guide's name and intent (blush, boutique, typographic) and checked for WCAG AA. They are not copied from the guide.
-- **When the guide export is available** (`assets/creative-direction/`):
-  1. Replace the hex values in the *Core palette* and *Supporting tones* blocks of `tokens.css` with the guide's values, keeping token names.
-  2. Replace the font families in `--ss-font-*` with the guide's typefaces, keeping the roles (display serif / UI sans).
-  3. Re-check every pair in §3 below; if a guide color fails AA for a role, keep it decorative and use the nearest darker shade for text.
-  4. Do not change role tokens, components or rules. They are the system; the palette is a skin.
+- **Creative direction:** "Guía Boutique Blush · Tipografía 10" (Claude Design), built on the client's palette study (`palette-study.pdf`, option E · Boutique Blush: *femenina · suave · elegante*) and typography study (`typography-boutique-blush.pdf`, option 10 · Young Serif + Plus Jakarta Sans: *cercana con carácter*). Both PDFs are in `assets/creative-direction/`.
+- The guide's palette, type, tokens and component names are fixed. This skill adds only what the guide leaves open (accessible text variants, focus, input borders), each marked **system addition**.
 
-## 2. Palette
+## 2. Palette (from the guide)
 
-| Token | Hex | Role |
+| Name | Hex | Token | Use |
+|---|---|---|---|
+| Palo de rosa | `#A4505D` | `--color-primary` | CTAs, eyebrows, accent word, sale price |
+| Malva | `#7A4E5E` | `--color-secondary` | AnnouncementBar, footer |
+| Blush | `#F6E4E1` | `--color-surface` | Cards, blocks, chips |
+| Blush suave | `#FBF0EE` | `--color-surface-2` | Alternate sections |
+| Marfil | `#FFFCFA` | `--color-bg` | Page background |
+| Champán | `#C8A66B` | `--color-accent` | NEW badge, always with Tinta text |
+| Tinta | `#211A1D` | `--color-ink` | Headlines and body |
+| Piedra | `#6F6266` | `--color-muted` | Secondary text, strikethrough price |
+| Line | `#EBD3CF` | `--color-line` | Dividers, card borders (decorative) |
+| Sale | `#A4505D` | `--color-sale` | Sale price / SALE badge |
+| Warning | `#B26A00` | `--color-warning` | Low-stock icon/indicator |
+| Success | `#2E7D32` | `--color-success` | Success icon/indicator |
+| WhatsApp | `#25D366` | `--color-whatsapp` | **Only** WhatsApp buttons/links |
+| WhatsApp ink | `#0B2E17` | `--color-whatsapp-ink` | Text/icon on WhatsApp green |
+
+### System additions (not in the guide; needed to keep text AA)
+
+| Token | Hex | Why |
 |---|---|---|
-| `--ss-cream` | `#FFFAF7` | Main page background (60%) |
-| `--ss-blush-50` | `#FBEFEC` | Alternate section background |
-| `--ss-blush-100` | `#F6E0DB` | Tags, soft surfaces, selected rows |
-| `--ss-blush-200` | `#EECBC3` | Borders, dividers, card outlines |
-| `--ss-blush-400` | `#D99A92` | Decorative only (illustration, rules) |
-| `--ss-rose` | `#B8475F` | Accent: large display words, icons, badges on Cream |
-| `--ss-berry` | `#8E2C47` | Primary action, links, active state (10%) |
-| `--ss-berry-deep` | `#6E1F36` | Hover/pressed for Berry, headings, one anchor band |
-| `--ss-plum` | `#2A1720` | Body text, footer, overlays |
-| `--ss-mauve` | `#6B5560` | Secondary text, captions, helper text |
-| `--ss-champagne` | `#C9A27A` | Decorative finishing detail only (thin rules, ribbon) |
-| `--ss-white` | `#FFFFFF` | Product image grounds, inputs, text on Berry |
-| `--ss-success` | `#2F6B4F` | Status: success / delivered / in stock |
-| `--ss-error` | `#B3261E` | Status: error / out of stock / failed |
-| `--ss-warning` | `#8A5A00` | Status: attention / low stock / delayed |
+| `--color-primary-strong` | `#93424F` | Hover/pressed for primary; palo de rosa *text* on Blush (5.5:1) |
+| `--color-warning-text` | `#8F5500` | "Only 3 left" text; guide warning is 4.1:1 on marfil |
+| `--color-success-text` | `#2A6B2E` | Success text on Blush surfaces |
+| `--color-field-border` | `#6F6266` (= muted) | Input/checkbox borders need ≥3:1; `--color-line` is 1.4:1 |
+| `--color-focus` | `#211A1D` (= ink) | Focus outline, 16.7:1 on marfil |
 
-## 3. Approved contrast pairs (WCAG 2.x)
+## 3. Approved contrast pairs (WCAG 2.x, computed)
 
-Normal text needs ≥4.5:1; large text (≥24px, or ≥18.66px bold) and UI graphics need ≥3:1.
+Normal text ≥4.5:1 · large text (≥24px, or ≥18.66px bold) and UI graphics ≥3:1.
 
-| Foreground | On Cream | On Blush 50 | On Blush 100 | On Blush 200 | Use |
+| Text | On Marfil | On Blush suave | On Blush | On White | Rule |
 |---|---|---|---|---|---|
-| Plum | 16.3 | 15.0 | 13.4 | 11.3 | Any text |
-| Berry Deep | 10.6 | 9.8 | 8.7 | 7.3 | Any text, headings |
-| Berry | 7.8 | 7.2 | 6.4 | 5.4 | Any text, links |
-| Mauve | 6.6 | 6.0 | 5.4 | 4.5 | Secondary text (Blush 200: borderline, avoid) |
-| Success | 6.1 | 5.6 | 5.0 | 4.2 ✗ | Status text (not on Blush 200) |
-| Error | 6.3 | 5.8 | 5.2 | 4.4 ✗ | Status text (not on Blush 200) |
-| Warning | 5.7 | 5.3 | 4.7 | 3.9 ✗ | Status text (not on Blush 200) |
-| Rose | 4.9 | 4.6 | 4.1 ✗ | 3.4 ✗ | Text only on Cream/Blush 50; large/display elsewhere |
-| Blush 400 | 2.3 ✗ | — | — | — | Never text |
+| Tinta | 16.7 | 15.3 | 13.9 | 17.1 | Any text |
+| Malva | 6.7 | 6.1 | 5.6 | 6.8 | Any text |
+| Piedra | 5.7 | 5.2 | 4.7 | 5.8 | Secondary text, any light surface |
+| Palo de rosa | 5.3 | 4.8 | **4.4 ✗** | 5.4 | Normal text on marfil/blush suave/white; on Blush only large text, else use primary-strong |
+| Primary-strong | 6.6 | 6.0 | 5.5 | — | Palo de rosa text anywhere light |
+| Success (guide) | 5.0 | 4.6 | **4.2 ✗** | 5.1 | Text on marfil/white; on Blush use success-text |
+| Warning (guide) | **4.1 ✗** | **3.8 ✗** | **3.5 ✗** | **4.2 ✗** | Icons/indicators only; text uses warning-text (5.9 on marfil) |
+| Champán | 2.3 ✗ | 2.1 ✗ | 1.9 ✗ | 2.3 ✗ | Never text; fill only |
 
-| Text on dark | White | Cream | Blush 100 | Blush 200 |
+| On a filled color | White | Marfil | Tinta | WhatsApp ink |
 |---|---|---|---|---|
-| On Berry | 8.1 | 7.8 | 6.4 | 5.4 |
-| On Berry Deep | 11.0 | 10.6 | 8.7 | 7.3 |
-| On Plum | 16.9 | 16.3 | 13.4 | 11.3 |
-| On Rose | 5.1 | 4.9 | 4.1 ✗ | 3.4 ✗ |
+| Palo de rosa | **5.4** | 5.3 | 3.2 ✗ | ✗ |
+| Malva | **6.8** | 6.7 | ✗ | ✗ |
+| Tinta | 17.1 | **16.7** | — | — |
+| Champán | 2.3 ✗ | ✗ | **7.4** | 6.4 |
+| WhatsApp green | 2.0 ✗ | ✗ | 8.6 | **7.5** |
 
-Primary button = White on Berry (8.1). Focus ring = Berry on Cream (7.8 > 3:1).
+So: primary button = white on palo de rosa; AnnouncementBar/footer = marfil on malva; NEW badge = tinta on champán; WhatsApp button = `#0B2E17` on `#25D366`. Never white text on WhatsApp green.
 
 ## 4. Color roles and proportions
 
-- **60%** Cream + Blush 50 (page and section backgrounds).
-- **30%** Blush 100/200 surfaces, Plum text, one Plum/Berry Deep band, footer.
-- **10%** Berry (primary buttons, links, selected states, key prices or highlights) + Rose accents.
-- Champagne and Blush 400 are seasoning: thin lines, ribbon details, illustration. Never more than a touch per screen.
-- Status colors only mean status. Never use Error red for sales or urgency.
+- **~60%** Marfil + Blush suave (page and alternating sections).
+- **~30%** Blush surfaces (cards, chips, blocks), Tinta text, Malva AnnouncementBar and footer.
+- **~10%** Palo de rosa (primary buttons, eyebrow dots, accent word, sale prices, active states).
+- Champán: a touch (NEW badge, a fine detail). WhatsApp green: only WhatsApp elements, so it reads as "chat", not as brand.
+- Status colors only mean status. Sale uses palo de rosa, not red.
 
-## 5. Logo and wordmark rules
+## 5. Logo and wordmark
 
-- `[CLIENT TO SUPPLY: logo files]`. Until supplied, set "ShipShop" in the display serif, Plum on light or Cream on Plum, as a clearly marked placeholder.
-- Logo sits on Cream, Blush 50 or Plum. Never on busy photos, never recolored outside the palette, never stretched or outlined.
-- Clear space around the logo ≥ the height of its capital "S".
+- `[CLIENT TO SUPPLY: logo files]`. Until supplied, set "ShipShop" in Young Serif 400, Tinta on light or Marfil on Malva, clearly marked as placeholder.
+- Logo on Marfil, Blush suave or Malva only; never on busy photos; never recolored outside the palette, stretched or outlined.
 
-## 6. Brand facts we can use
+## 6. Business facts
 
-Only these, as supplied by the client:
-- ShipShop makes shopping **faster, easier and personalized**.
-- ShipShop positions itself as a **pioneer of online selling for the regular public in Guyana**, aiming to **set the standard of online shopping quality** there.
-- Signature line: **"Come and buy with us is easier for you"** (on screen: "Come and buy with us — it's easier for you.").
+**Confirmed by the client brief (use freely):**
+- Primary message: *We can make your shopping faster, easier and personalized.*
+- Signature line: *Come and buy with us is easier for you* (on screen: "Come and buy with us — it's easier for you.").
+- Goal: set the standard of online shopping quality in Guyana as pioneers of online selling for the regular public.
+- Market: Georgetown and Regions 3, 4 and 5. Catalog: Fashion (Women, Men, Kids, Accessories, Plus Size) + Home & More (Home, Gifts, Beauty, Kids & Toys), plus New In and Sale.
+- Channels: website, WhatsApp, physical store. Payments: MMG, Cash on Delivery, card (Visa / Mastercard; gateway to be defined).
+- Interface in English (Guyana); prices in GYD.
 
-Everything else (delivery areas and times, payment methods, return policy, prices, founding year, team, order volumes, reviews) is `[CLIENT TO SUPPLY]`. Never invent it.
+**Example values used in the guide and wireframes - use them in designs, but they must be confirmed before launch:**
+| Item | Example value |
+|---|---|
+| Free delivery threshold | Georgetown, orders over GY$ 10,000 |
+| Delivery zones | Georgetown 24-48h GY$ 800 · East Bank Demerara 1-2 days GY$ 1,200 · East Coast Demerara 1-2 days GY$ 1,200 · West Demerara 2-3 days GY$ 1,500 · Berbice 2-3 days GY$ 2,000 · Store pickup same day, free |
+| Cash on Delivery | Georgetown and East Bank |
+| MMG | Send to 600-0000, order number as reference, confirmed on WhatsApp; order stays `pending_payment` until then |
+| WhatsApp confirmation time | "within 1 hour" |
+| Store | Lot 12 Regent St, Georgetown · Mon-Sat 9am-6pm · Sun closed · +592 600 0000 |
+| Returns | "Free returns within 7 days" |
+| Club offer | "10% off your first order" |
+
+Anything not in these two lists (reviews, ratings, stock counts, founding story, team, order volume) is `[CLIENT TO SUPPLY]` or clearly labeled sample data.
