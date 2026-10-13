@@ -1,0 +1,13 @@
+{
+  "name": "shipshop",
+  "private": true,
+  "description": "ShipShop online store — static site for Cloudflare (Workers static assets or Pages).",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "pages:deploy": "wrangler pages deploy public --project-name shipshop"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

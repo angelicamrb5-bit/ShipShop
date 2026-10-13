@@ -1,0 +1,124 @@
+/* ShipShop design tokens - Boutique Blush · Tipografía 10
+   Source: "Guía Boutique Blush · Tipografía 10" §4 (copied as-is).
+   Additions below the guide block are marked SYSTEM ADDITION.
+   Components use these tokens only - never raw hex or one-off sizes. */
+
+/* Fonts (Google Fonts, OFL)
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+*/
+
+:root {
+  /* ===== From the guide ===== */
+
+  /* Color · Boutique Blush */
+  --color-primary:   #A4505D;  /* CTA, accents */
+  --color-primary-ink: #FFFFFF;
+  --color-secondary: #7A4E5E;  /* announcement bar, footer */
+  --color-surface:   #F6E4E1;
+  --color-surface-2: #FBF0EE;
+  --color-bg:        #FFFCFA;
+  --color-accent:    #C8A66B;  /* only with ink text */
+  --color-ink:       #211A1D;
+  --color-muted:     #6F6266;
+  --color-line:      #EBD3CF;
+  --color-sale:      #A4505D;
+  --color-warning:   #B26A00;  /* "Only 3 left" indicator */
+  --color-success:   #2E7D32;
+  --color-whatsapp:  #25D366;  /* WhatsApp ONLY */
+  --color-whatsapp-ink: #0B2E17;
+
+  /* Typography · option 10 */
+  --font-display: "Young Serif", Georgia, serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --text-h1: clamp(34px, 5vw, 56px);   /* lh 1.05, ls -0.01em */
+  --text-h2: clamp(26px, 3.2vw, 40px); /* lh 1.15 */
+  --text-h3: clamp(18px, 2vw, 24px);
+  --text-body: 16px;                    /* lh 1.6 */
+  --text-small: 14px;
+  --text-eyebrow: 12px;                 /* 600, color primary */
+  --text-button: 15px;                  /* 600, sentence case */
+
+  /* Shape */
+  --radius-pill: 999px;   /* buttons, chips */
+  --radius-card: 12px;    /* cards, inputs, sheets */
+  --radius-sm: 4px;       /* badges */
+  --tap-min: 44px;
+  --space: 4px;           /* scale: 4 8 12 16 24 32 48 64 */
+  --container: 1312px;    /* 1440 - 2×64 */
+  --shadow-sheet: 0 -8px 24px rgba(33,26,29,.12);
+
+  /* ===== SYSTEM ADDITIONS (accessibility + completeness) ===== */
+
+  /* Accessible text variants - see brand-foundations.md §2-3 */
+  --color-primary-strong: #93424F;  /* primary hover/pressed; primary text on --color-surface */
+  --color-warning-text:   #8F5500;  /* low-stock text (guide warning fails AA as text) */
+  --color-success-text:   #2A6B2E;  /* success text on blush surfaces */
+  --color-field-border:   var(--color-muted); /* inputs need >=3:1 */
+  --color-focus:          var(--color-ink);
+  --color-overlay:        rgba(33,26,29,.55); /* text-on-photo scrim; check ratio per image */
+  --color-white:          #FFFFFF;           /* product image ground */
+
+  /* Type details from the guide's scale table */
+  --leading-h1: 1.05;
+  --leading-h2: 1.15;
+  --leading-body: 1.6;
+  --tracking-h1: -0.01em;
+  --text-product-name: 14px;  /* 15px desktop, 500, max 2 lines */
+  --text-price: 15px;         /* 16px desktop, 600, tabular-nums */
+  --text-eyebrow-desktop: 13px;
+  --measure: 65ch;
+
+  /* Spacing scale as named steps (multiples of --space) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --gutter: 16px;            /* mobile side gutter; 64px at 1440 */
+  --section-y: 48px;         /* mobile; 64px+ desktop; always >= 2x headline height */
+
+  /* Sizing */
+  --btn-height: 48px;        /* 52px for primary on mobile */
+  --btn-height-lg: 52px;
+  --input-height: 48px;
+  --wa-fab: 56px;
+  --icon: 24px;
+  --menu-row: 50px;          /* mobile menu rows */
+
+  /* Elevation (only sheets, drawers, menus, sticky bars) */
+  --shadow-drawer: -8px 0 24px rgba(33,26,29,.12);
+  --shadow-menu: 0 8px 24px rgba(33,26,29,.10);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-fast: 150ms;    /* hover, press, toggles */
+  --dur-base: 200ms;    /* tabs, accordions, counters */
+  --dur-panel: 300ms;   /* drawer, bottom sheet, mega-menu */
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --text-product-name: 15px;
+    --text-price: 16px;
+    --text-eyebrow: var(--text-eyebrow-desktop);
+    --gutter: 64px;
+    --section-y: 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur-base: 0ms; --dur-panel: 0ms; }
+}
+
+/* Base rules */
+body { background: var(--color-bg); color: var(--color-ink); font: 400 var(--text-body)/var(--leading-body) var(--font-body); }
+h1, h2, .collection-name { font-family: var(--font-display); font-weight: 400; }
+.price { font-weight: 600; font-variant-numeric: tabular-nums; }
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
