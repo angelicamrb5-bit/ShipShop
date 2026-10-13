@@ -1,0 +1,89 @@
+{
+  "client_name": "ShipShop",
+  "site_url": "shipshop.hermeswraps.workers.dev",
+  "report_title": "Website Audit: Payment Information",
+  "subtitle": "Making it safe, clear and easy for customers to pay you",
+  "date": "October 2026",
+  "brand_color": "7A4E5E",
+
+  "executive_summary": {
+    "overview": [
+      "We reviewed the Payment section of the How to Order page, together with every other place on the site that tells customers how they can pay. The site looks warm, polished and on-brand, and offering MMG and cash fits how your customers already like to shop.",
+      "Before the site is shared with real customers, a few things need to be fixed. The payment instructions still show sample phone numbers, website orders don't automatically reach the store, and different pages give different answers about card payments and when to pay. Most of these are small, quick fixes once you confirm a few business details."
+    ],
+    "at_a_glance": [
+      {"value": "2", "label": "Issues to fix before launch: the sample payment number and orders that don't reach the store"},
+      {"value": "4", "label": "Places on the site that say cards are accepted, while cards are not yet available"},
+      {"value": "3", "label": "Payment methods explained: MMG, cash on delivery and card (coming soon)"}
+    ],
+    "key_takeaways": [
+      "The payment instructions must show your real MMG and WhatsApp numbers before any customer sees them.",
+      "Every website order needs to reach the store automatically, so no customer pays for an order you can't see.",
+      "The site should give one clear, consistent answer to 'How can I pay, and when?'"
+    ]
+  },
+
+  "whats_working": [
+    {"title": "Payment options that match local habits", "detail": "Leading with MMG and cash on delivery reflects how most of your customers already pay, and the headline 'Pay the way you already pay' sets a friendly, reassuring tone."},
+    {"title": "A clean, calm, on-brand page", "detail": "The page is easy to read on a phone, the text is clear and easy to see, and the design feels like a real boutique. Customers can jump straight to the Payment section from the top of the page."},
+    {"title": "Honest about card payments on this page", "detail": "The Payment section and the checkout both say clearly that Visa and Mastercard are coming soon, so customers are not stopped by a broken option at the last step."},
+    {"title": "Help is always close by", "detail": "WhatsApp buttons appear throughout the site and tell your team which page the customer was on, so questions can be answered quickly by a real person."}
+  ],
+
+  "opportunities": [
+    {
+      "title": "Sample numbers are showing in the payment instructions",
+      "impact": "High",
+      "finding": "The MMG number customers are told to send money to (600-0000) and the WhatsApp number (+592 600 0000) are placeholders from the setup stage, and they are visible on the live site.",
+      "why_it_matters": "If any customer follows these instructions, their payment could fail or go to a stranger, and they would have no working way to contact you. This is the most important thing to fix before the site is shared."
+    },
+    {
+      "title": "Website orders don't automatically reach the store",
+      "impact": "High",
+      "finding": "When someone places an order on the website, it is only saved on their own phone or computer. The store only hears about it if the customer taps 'Track on WhatsApp' on the confirmation page.",
+      "why_it_matters": "A customer could place an order, send an MMG payment and close the page, and your team would receive money with no matching order. That leads to missed sales, manual detective work and unhappy customers."
+    },
+    {
+      "title": "The site gives mixed answers about how and when to pay",
+      "impact": "High",
+      "finding": "The footer and several other pages say Visa and Mastercard are accepted, while the Payment section says cards are coming soon. One page says to pay first and wait for confirmation; another says you will confirm first and then they pay. Customers outside the listed delivery areas are told to send 'the total' even though their delivery fee isn't known yet.",
+      "why_it_matters": "Conflicting instructions make customers hesitate, pay the wrong amount or pay twice. Each of these situations turns into extra WhatsApp messages and can cost trust."
+    },
+    {
+      "title": "Order numbers may repeat as the shop grows",
+      "impact": "Medium",
+      "finding": "Order numbers are short (five random digits), and customers use them as the reference when they pay by MMG. Nothing prevents two customers from getting the same number.",
+      "why_it_matters": "Once you have a few hundred orders, two payments with the same reference become likely, and it becomes hard to tell whose payment is whose."
+    },
+    {
+      "title": "Paying by MMG could feel easier and safer",
+      "impact": "Medium",
+      "finding": "The MMG instructions give only a number. They don't show the account name customers should expect to see, what to send as proof of payment, or how long they have to pay. There is no button to copy the number, and the section has no button to ask for help.",
+      "why_it_matters": "Clear, reassuring instructions reduce mistakes and 'did you get my payment?' messages, and help customers who are new to paying a shop by MMG feel confident."
+    }
+  ],
+
+  "recommendations": [
+    {"action": "Replace the sample numbers with your real details", "detail": "Add your real MMG number, the account name customers will see, and your WhatsApp Business number. They are stored in one place, so the change updates the whole site at once.", "impact": "High", "effort": "Low", "timing": "Quick win"},
+    {"action": "Keep the site hidden from search until launch", "detail": "While sample information is still on the site, ask search engines not to list it, or add a password, so no customer finds it by accident.", "impact": "High", "effort": "Low", "timing": "Quick win"},
+    {"action": "Make every page agree on payment methods", "detail": "Show cards as accepted only when card payments are turned on, and show cash on delivery only for the areas where it is offered. Every page then gives the same answer automatically.", "impact": "High", "effort": "Low", "timing": "Quick win"},
+    {"action": "Agree one clear order of steps for MMG payments", "detail": "Decide whether customers pay straight away or wait for your confirmation, what proof they should send and how long they have to pay, then use the same wording on every page. Customers outside the listed areas should wait for the final total, including delivery, before they pay.", "impact": "High", "effort": "Low", "timing": "Quick win"},
+    {"action": "Make the MMG instructions easier to follow", "detail": "Add a 'Copy' button next to the MMG number and the order number, show the account name, and add an 'Ask us on WhatsApp' button under the payment options. Point the 'How it works' link at the top of every page directly to the Payment section.", "impact": "Medium", "effort": "Low", "timing": "Quick win"},
+    {"action": "Tidy up the Payment section's look", "detail": "Line up the three payment cards so their headings sit at the same height, give MMG its own phone-style icon, and make the delivery fee table easy to read on phones. These are small visual fixes that make the page feel finished.", "impact": "Low", "effort": "Low", "timing": "Quick win"},
+    {"action": "Send every website order straight to the store", "detail": "Set up a simple order inbox so each order is saved and your team is notified the moment it is placed, whether or not the customer opens WhatsApp. This also lets the system give every order a unique number.", "impact": "High", "effort": "Medium", "timing": "Next"},
+    {"action": "Publish full returns and payment terms", "detail": "Add the complete returns policy, including exceptions, and short terms that explain refunds for cash and MMG, cancellations after payment and the payment deadline.", "impact": "Medium", "effort": "Medium", "timing": "Next"},
+    {"action": "Start measuring the payment journey", "detail": "Add simple tracking so you can see how many people choose each payment method, how many complete their order, and how many tap the WhatsApp buttons. That shows where customers get stuck.", "impact": "Medium", "effort": "Low", "timing": "Next"},
+    {"action": "Add card payments and options for customers abroad", "detail": "When a card payment provider is chosen, turn card payments on. If relatives abroad buying gifts are an important group, consider a payment option that works for them too.", "impact": "Medium", "effort": "High", "timing": "Later"}
+  ],
+
+  "next_steps": {
+    "intro": "To move forward, we need a few business details from you and a go-ahead on the quick wins.",
+    "steps": [
+      {"title": "Confirm your payment details", "detail": "Send us the real MMG number and account name, the WhatsApp Business number, and which areas offer cash on delivery.", "timing": "This week"},
+      {"title": "Decide the payment rules", "detail": "Tell us whether customers pay before or after your confirmation, what proof of payment you want, how long they have to pay and how refunds work.", "timing": "This week"},
+      {"title": "Approve the quick-win package", "detail": "We will update the payment wording across the site and make the instructions easier to follow.", "timing": "Within 2 weeks"},
+      {"title": "Choose how you want to receive orders", "detail": "Let us know whether new orders should reach you by email, WhatsApp or both, so we can plan the order inbox.", "timing": "Within 2 weeks"}
+    ],
+    "closing": "We're happy to walk you through any of these points. Once the payment details are confirmed, the most important fixes can be done quickly."
+  }
+}
